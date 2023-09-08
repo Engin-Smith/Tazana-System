@@ -9,13 +9,13 @@ class suppliers extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = 'suppliers';
-    protected $primaryKey = 'id';
+    protected $table = 'tbl_suppliers';
+    protected $primaryKey = 'sup_id';
     public $incrementing = false;
     protected $fillable = [
-        'id',
-        'sub_name',
-        'sub_detail',
-        'sub_contact',
+        'sup_id',
+        'sup_name',
+        'sup_detail',
+        'sup_contact'
     ];
 }

@@ -5,14 +5,48 @@
         </h2>
     </x-slot> --}}
 
+    <!-- Header Start -->
+    <div class="container-fluid pt-1 px-1">
+        <div class="bg-white rounded-top p-4">
+            <div class="row">
+                <div class="col-12 col-sm-6 text-center text-sm-start">
+                    &copy; <a href="#">TAZANA Coffee</a>, All Right. 
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- header End -->
+    
+    @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+        
     <!-- Table Start -->
     <div class="container-fluid pt-4 px-4">
       <div class="row g-4">
           
           
           <div class="col-12">
-              <div class="bg-secondary rounded h-100 p-4">
-                  <h6 class="mb-4">Responsive Table</h6>
+              <div class="bg-white rounded h-100 p-4">
+                  {{-- <h6 class="mb-4">Responsive Table</h6> --}}
+                  {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-end"> --}}
+                  <div class="d-md-flex justify-content-md-end">
+                    <a href="{{ route('supplier.create')}}" class="btn btn-primary me-md-2"></i>add new</a>
+                    
+                  </div>
                   <div class="table-responsive">
                       <table class="table">
                           <thead>
@@ -62,4 +96,6 @@
       </div>
   </div>
   <!-- Table End -->
+
+
 </x-app-layout>

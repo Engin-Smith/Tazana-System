@@ -116,7 +116,7 @@
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-secondary navbar-dark">
+            <nav class="navbar bg-white navbar-dark">
                 <a href="{{ url('/dashboard') }}" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-coffee me-2"></i>TAZANA</h3>
                 </a>
@@ -133,13 +133,14 @@
                 <div class="navbar-nav w-100">
                     <a href="{{ url('/dashboard') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Suppliers</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Suppli</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{ route('supplier.index')}}" class="dropdown-item">Buttons</a>
                             <a href="typography.html" class="dropdown-item">Typography</a>
                             <a href="element.html" class="dropdown-item">Other Elements</a>
                         </div>
                     </div>
+                    <a href="{{ route('supplier.index')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Suppliers</a>
                     <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Customer</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Product</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Order</a>
@@ -162,7 +163,7 @@
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+            <nav class="navbar navbar-expand bg-white navbar-dark sticky-top px-4 py-0">
                 <a href="{{ url('/dashboard') }}" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-coffee"></i></h2>
                 </a>
@@ -264,7 +265,7 @@
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-secondary rounded-top p-4">
+                <div class="bg-white rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             &copy; <a href="#">TAZANA Coffee</a>, All Right. 
