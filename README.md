@@ -64,3 +64,54 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Installation
+
+Install and setup for my-project
+
+```bash
+  https://getcomposer.org/download/
+```
+```bash
+ change(.nev.example) to .nev
+```
+```bash
+ setup database or as you wish in (.nev)
+```    
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Engin-Smith/Tazana-System.git
+```
+
+Go to the project directory
+
+```bash
+  cd Tazana-System 
+```
+
+Start the server
+
+```bash
+  Xampp or Wampserver
+```
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  php artisan serve
+```
+
+
+## Used By
+
+This project is used by the following Team:
+
+- Mao Somith
+
