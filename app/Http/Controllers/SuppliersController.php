@@ -16,16 +16,15 @@ class SuppliersController extends Controller
     public function index()
     {
         //
-         //
          $search =request()->query('search');
          if($search){
-             $supplier = Suppliers::where('id', 'LIKE', "%{$search}%")
-             ->orWhere('sub_name', 'LIKE', "%{$search}%" )->simplePaginate(3);
+             $suppliers = suppliers::where('sup_id', 'LIKE', "%{$search}%")
+             ->orWhere('sup_name', 'LIKE', "%{$search}%" )->simplePaginate(3);
          } else {
-             $supplier = Suppliers::paginate(5);
+             $suppliers = suppliers::paginate(10);
          }
  
-        return view('suppliers.index')
+        return view('suppliers.index', compact('suppliers'))
          ->with('i', (request()->input('page', 1) - 1) * 5);
         
     }
@@ -59,7 +58,7 @@ class SuppliersController extends Controller
 
         $supplier->save();
 
-        return redirect()->route('suppliers.index')
+        return redirect()->route('supplier.index')
                         ->with('success','Supplier created successfully.');
     }
 
@@ -77,14 +76,28 @@ class SuppliersController extends Controller
     public function edit(suppliers $suppliers)
     {
         //
+        return view('suppliers.edit', compact('suppliers'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, suppliers $suppliers)
+    public function update(Request $request, suppliers $supplier)
     {
         //
+        $request->validate([
+            // 'id'=> 'required',
+            'sup_name' => 'required',
+            'sup_detail' => 'required',
+            'sup_contact' => 'required'
+        ]);
+        $input = $request->all();
+        
+
+        $supplier->update();
+
+        return redirect()->route('supplier.index')
+                        ->with('success','Supplier updated successfully.');
     }
 
     /**
@@ -93,5 +106,15 @@ class SuppliersController extends Controller
     public function destroy(suppliers $suppliers)
     {
         //
+        $suppliers->delete();
+
+        return redirect()->route('supplier.index')
+                        ->with('success','Product deleted successfully');
+    }
+    public function search() {
+        $search = $_GET['search'];
+        $suppliers = suppliers::where('sup_id', 'like', '%'. $search. '%') ->get();
+        return view('suppliers.search', compact('suppliers'));
+
     }
 }

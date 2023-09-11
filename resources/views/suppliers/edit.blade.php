@@ -11,7 +11,7 @@
         <div class="bg-white rounded-top p-4">
             <div class="row">
                 <div class="col-12 col-sm-6 text-center text-sm-start">
-                     <a href="#">Create New Supplier</a> 
+                     <a href="#">Update Supplier</a> 
                 </div>
                 
             </div>
@@ -42,9 +42,9 @@
                     <div class="bg-white rounded h-100 p-4">
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-white rounded h-100 p-4">
-                                <form action="{{ route('supplier.store') }}" method="POST" enctype="multipart/form-data">
-                                    
+                                <form action="{{ route('supplier.update', $supplier->sup_id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">ID</label>
                                         <input type="text" class="form-control bg-white" name="id">
@@ -53,20 +53,20 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Supplier Name</label>
-                                        <input type="text" class="form-control bg-white" name="sup_name">
+                                        <input type="text" class="form-control bg-white" name="sup_name" value="{{$supplier->sup_name}}">
                                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                         </div> --}}
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Supplier Detail</label>
-                                        <input type="text" class="form-control"  name="sup_detail">
+                                        <input type="text" class="form-control"  name="sup_detail" value="{{$supplier->sup_detail}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Supplier Contact</label>
-                                        <input type="text" class="form-control" name="sup_contact">
+                                        <input type="text" class="form-control" name="sup_contact" value="{{$supplier->sup_contact}}">
                                     </div>
                                     
-                                    <button type="submit" class="btn btn-primary text-dark" >Submit</button>
+                                    <button type="submit" class="btn btn-primary" >Submit</button>
                                 </form>
                             </div>
                         </div>
