@@ -33,4 +33,5 @@ require __DIR__.'/auth.php';
 
 
 
-Route::resource('supplier', SuppliersController::class);
+Route::resource('suppliers', SuppliersController::class);
+// Route::put('suppliers/{supplier}', 'SuppliersController@update')->name('suppliers.update');

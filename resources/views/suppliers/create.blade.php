@@ -42,7 +42,7 @@
                     <div class="bg-white rounded h-100 p-4">
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-white rounded h-100 p-4">
-                                <form action="{{ route('supplier.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('suppliers.store') }}" method="POST" enctype="multipart/form-data">
                                     
                                     @csrf
                                     <div class="mb-3">

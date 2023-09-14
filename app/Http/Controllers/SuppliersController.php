@@ -58,7 +58,7 @@ class SuppliersController extends Controller
 
         $supplier->save();
 
-        return redirect()->route('supplier.index')
+        return redirect()->route('suppliers.index')
                         ->with('success','Supplier created successfully.');
     }
 
@@ -73,42 +73,42 @@ class SuppliersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(suppliers $suppliers)
+    public function edit($id)
     {
         //
+        $suppliers= suppliers::find($id);
         return view('suppliers.edit', compact('suppliers'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, suppliers $supplier)
+    public function update(Request $request, $id)
     {
         //
-        $request->validate([
-            // 'id'=> 'required',
-            'sup_name' => 'required',
-            'sup_detail' => 'required',
-            'sup_contact' => 'required'
-        ]);
-        $input = $request->all();
         
+        $update = [
+            "sup_name"=>$request->sup_name,
+            "sup_detail"=>$request->sup_detail,
+            "sup_contact"=>$request->sup_contact,
+        ];
+        suppliers::where('sup_id', $id)->update($update);
 
-        $supplier->update();
-
-        return redirect()->route('supplier.index')
-                        ->with('success','Supplier updated successfully.');
+        return redirect()->route('suppliers.index')
+                        ->with('success','Supplier created successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(suppliers $suppliers)
+    public function destroy($id)
     {
         //
-        $suppliers->delete();
+        // $suppliers = suppliers::find($sup_id);
+        // $suppliers->delete();
+        suppliers::destroy($id);
 
-        return redirect()->route('supplier.index')
+        return redirect()->route('suppliers.index')
                         ->with('success','Product deleted successfully');
     }
     public function search() {
