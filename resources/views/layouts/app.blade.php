@@ -20,7 +20,7 @@
         <meta content="" name="description">
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon/fov.png')}}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -29,9 +29,6 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
@@ -40,37 +37,48 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Installation
 
-Install and setup for my-project
+#Install and setup for my-project
 
+step 1 : go to download the composer for supporting the laravel
 ```bash
-  https://getcomposer.org/download/
+    https://getcomposer.org/download/
 ```
+I recomment you to download the git also it's version control for work with this project
 ```bash
- change(.nev.example) to .nev
+    [https://getcomposer.org/download/](https://git-scm.com/)
 ```
-```bash
- setup database or as you wish in (.nev)
-```    
-## Run Locally
-
-Clone the project
+Step 2 : Clone the project
 
 ```bash
   git clone https://github.com/Engin-Smith/Tazana-System.git
 ```
-
-Go to the project directory
+step 3 : Go to the project directory
 
 ```bash
   cd Tazana-System 
 ```
-
 Start the server
 
 ```bash
   Xampp or Wampserver
 ```
+step 4 : update composer for up to date from repo
 
+```bash
+  composer update
+```
+step 5 : rename the file for server
+```bash
+ change(.nev.example) to .nev
+```
+config database name in .nev
+```bash
+ setup database or as you wish in (.nev)
+```
+step 6 : on the terminal follow comment for auto create database if it's not work, go to create database name like you put on .nev and then migrate against
+```bash
+ php artisan migrate
+```
 
 ## Running Tests
 
