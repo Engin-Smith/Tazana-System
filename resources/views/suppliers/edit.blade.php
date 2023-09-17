@@ -51,12 +51,21 @@
                 <div class="card mb-4">
                     <h5 class="card-header">Update</h5>
                     <div class="card-body demo-vertical-spacing demo-only-element">
-
+                        <!-- Upload photo -->
+                        <div class="photo-wraper">
+                            <div class="photo">
+                                <img src="/image/{{($suppliers->sup_img)}}" id="upload_image" class="rounded mx-auto d-block" style="width: 120px; height: 120px;">
+                            </div>
+                            <div class="button">
+                                <input id="register-photo" class="rounded mx-auto d-block" onchange="readURL(this);" type="file" name="doc_image" value="{{$suppliers->sup_img}}">
+                            </div>
+                        </div>
+                        <!-- End Upload photo -->
                         <div class="form-password-toggle">
                             <label class="form-label" for="basic-default-password12">Supplier ID</label>
                             <div class="input-group">
-                                <input type="text" value="{{ $suppliers->sup_id }}" class="form-control"
-                                    id="basic-default-password12" aria-describedby="basic-default-password2" />
+                                <input type="text" value="{{ $suppliers->sup_id }}" class="form-control" disabled
+                                    id="basic-default-password12" aria-describedby="basic-default-password2" style="border-radius: 5px;"/>
                             </div>
                         </div>
                         <div class="form-password-toggle">
@@ -64,7 +73,7 @@
                             <div class="input-group">
                                 <input type="text" name="sup_name" value="{{ $suppliers->sup_name }}"
                                     class="form-control" id="basic-default-password12"
-                                    aria-describedby="basic-default-password2" />
+                                    aria-describedby="basic-default-password2" style="border-radius: 5px;"/>
                             </div>
                         </div>
                         <div class="form-password-toggle">
@@ -72,7 +81,7 @@
                             <div class="input-group">
                                 <input type="text" name="sup_detail" value="{{ $suppliers->sup_detail }}"
                                     class="form-control" id="basic-default-password12"
-                                    aria-describedby="basic-default-password2" />
+                                    aria-describedby="basic-default-password2" style="border-radius: 5px;"/>
                             </div>
                         </div>
                         <div class="form-password-toggle">
@@ -80,7 +89,7 @@
                             <div class="input-group">
                                 <input type="text" name="sup_contact" value="{{ $suppliers->sup_contact }}"
                                     class="form-control" id="basic-default-password12"
-                                    aria-describedby="basic-default-password2" />
+                                    aria-describedby="basic-default-password2" style="border-radius: 5px;" />
                             </div>
                         </div>
 
@@ -96,8 +105,6 @@
         </div>
     </div>
     <!-- / Content -->
-
-    </form>
 
 
 

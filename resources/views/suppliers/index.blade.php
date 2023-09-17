@@ -36,10 +36,9 @@
         </div>
     @endif
 
-
+    
 
     <!-- Content -->
-
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="py-3 mb-4"><span class="text-muted fw-light">Suppliers /</span> Table</h4>
 
@@ -49,7 +48,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1 class="card-header fs-2">Table Suppliers</h1>
+                        <h1 class="card-header fs-2 fw-bold">Suppliers</h1>
                     </div>
                     <div class="col">
 
@@ -61,6 +60,10 @@
                                 data-bs-target="#createModal">
                                 <i class="fa fa-plus"></i>Create</button>
                         </div>
+                        {{-- <div class=" d-md-flex justify-content-md-end">
+                            <a href="{{route('suppliers.create')}}" class="btn btn-primary text-primary" type="button">
+                                <i class="fa fa-plus"></i>test</a>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -81,6 +84,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Image</th>
                             <th>Supplier name</th>
                             <th>Supplier Detail</th>
                             <th>Supplier Conatact</th>
@@ -90,8 +94,20 @@
                     <tbody class="table-border-bottom-0">
                         @foreach ($suppliers as $supplier)
                             <tr>
-                                {{-- <th scope="row" id="">1</th> --}}
                                 <td name="sup_id">{{ $supplier->sup_id }}</td>
+                                <th scope="row" id="">
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                        <li
+                                          data-bs-toggle="tooltip"
+                                          data-popup="tooltip-custom"
+                                          data-bs-placement="top"
+                                          class="avatar avatar-xs pull-up"
+                                          title="{{$supplier->sup_name}}">
+                                          <img src="/image/{{($supplier->sup_img)}}" alt="Avatar" class="rounded-circle" />
+                                        </li>
+                                        
+                                      </ul>
+                                </th>
                                 <td name="sup_name">{{ $supplier->sup_name }}</td>
                                 <td name="sup_detail">{{ $supplier->sup_detail }}</td>
                                 <td name="sup_contact">{{ $supplier->sup_contact }}</td>
@@ -146,56 +162,6 @@
                                     </form>
                                 </td>
                             </tr>
-
-                            <!-- Modal  edit-->
-                            <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalCenterTitle">Update Supplier</h5>
-                                            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form action="{{ route('suppliers.store') }}" method="POST">
-                                            @csrf
-                                            <div class="modal-body">
-
-                                                <div class="row">
-                                                    <div class="col mb-3">
-                                                        <label for="sup_name" class="form-label">Supplier Name</label>
-                                                        <input type="text" id="sup_name" class="form-control"
-                                                            placeholder="Enter Name" name="sup_name" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col mb-3">
-                                                        <label for="nameWithTitle" class="form-label">Supplier
-                                                            Detail</label>
-                                                        <input type="text" id="nameWithTitle" class="form-control"
-                                                            placeholder="Enter Detail" name="sup_detail" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col mb-3">
-                                                        <label for="nameWithTitle" class="form-label">Supplier
-                                                            Contact</label>
-                                                        <input type="text" id="nameWithTitle" class="form-control"
-                                                            placeholder="Enter Contact" name="sup_contact" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    Close
-                                                </button>
-                                                <button type="submit" class="btn btn-primary text-primary">Save
-                                                    changes</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
                         @endforeach
                     </tbody>
                 </table>
@@ -218,8 +184,64 @@
     <!-- / Content -->
 
 
-
-
+<!-- Modal  edit-->
+<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="modalCenterTitle">Update Supplier</h1>
+                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <form action="{{ route('suppliers.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <!-- Upload photo -->
+                    <div class="photo-wraper">
+                        <div class="photo">
+                            <img src="{{asset('assets/img/avatars/smith-sample.png')}}" class="rounded mx-auto d-block" id="upload_image" style="width: 120px; height: 120px; box-shadow: 0 0 0 1px red;">
+                        </div><br>
+                        <div class="button">
+                            <input class="rounded mx-auto d-block" id="register-photo" onchange="readURL(this);" type="file" name="sup_img">
+                        </div><br>
+                    </div>
+                    <!-- End Upload photo -->
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="sup_name" class="form-label">Supplier Name</label>
+                            <input type="text" id="sup_name" class="form-control"
+                                placeholder="Enter Name" name="sup_name" style="border-radius: 5px;"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="nameWithTitle" class="form-label">Supplier
+                                Detail</label>
+                            <input type="text" id="nameWithTitle" class="form-control"
+                                placeholder="Enter Detail" name="sup_detail" style="border-radius: 5px;"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="nameWithTitle" class="form-label">Supplier
+                                Contact</label>
+                            <input type="text" id="nameWithTitle" class="form-control"
+                                placeholder="Enter Contact" name="sup_contact" style="border-radius: 5px;"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary"
+                        data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary text-primary">Save
+                        changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 </x-app-layout>

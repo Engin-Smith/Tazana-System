@@ -341,7 +341,7 @@
                       </g>
                     </g>
                   </svg> --}}
-                  <i class="fa fa-coffee" aria-hidden="true"></i>
+                  <i class="fa fa-coffee" aria-hidden="true" style="font-size: 1.73em; color:crimson"></i>
                 </span>
                 <span class="app-brand-text demo menu-text fw-bold ms-2">TAZANA</span>
               </a>
@@ -399,87 +399,45 @@
               </li> --}}
   
               <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Pages</span>
+                <span class="menu-header-text">IN</span>
               </li>
               <li class="menu-item">
                     <a href="{{ route('suppliers.index')}}" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-table"></i>
+                      <i class="menu-icon tf-icons bx bxl-docker" style="color: #007bff"></i>
                       <div data-i18n="Tables">Suppliers</div>
                     </a>
-                  
-
-                {{-- <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                  <div data-i18n="Account Settings">Account Settings</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="pages-account-settings-account.html" class="menu-link">
-                      <div data-i18n="Account">Account</div>
+                    <a href="{{ route('suppliers.index')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bx-group" style="color: #007bff"></i>
+                      <div data-i18n="Tables">Empployee</div>
                     </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="pages-account-settings-notifications.html" class="menu-link">
-                      <div data-i18n="Notifications">Notifications</div>
+                    <a href="{{ route('suppliers.index')}}" class="menu-link">
+                      <i class="menu-icon tf-icons bx bxs-shopping-bag" style="color: #007bff"></i>
+                      <div data-i18n="Tables">Customer</div>
                     </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="pages-account-settings-connections.html" class="menu-link">
-                      <div data-i18n="Connections">Connections</div>
-                    </a>
-                  </li>
-                </ul> --}}
               </li>
-              {{-- <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                  <div data-i18n="Authentications">Authentications</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                      <div data-i18n="Basic">Login</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                      <div data-i18n="Basic">Register</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                      <div data-i18n="Basic">Forgot Password</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                  <div data-i18n="Misc">Misc</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="pages-misc-error.html" class="menu-link">
-                      <div data-i18n="Error">Error</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="pages-misc-under-maintenance.html" class="menu-link">
-                      <div data-i18n="Under Maintenance">Under Maintenance</div>
-                    </a>
-                  </li>
-                </ul>
-              </li> --}}
-              <!-- Components -->
-              {{-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li> --}}
+              
+              <!-- Product menu -->
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">Products</span></li>
               <!-- Cards -->
-              {{-- <li class="menu-item">
-                <a href="cards-basic.html" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-collection"></i>
-                  <div data-i18n="Basic">Cards</div>
+              <li class="menu-item">
+                <a href="{{ route('suppliers.index')}}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-paste" style="color: #007bff"></i>
+                  <div data-i18n="Tables">Purchace</div>
                 </a>
-              </li> --}}
+                <a href="{{ route('suppliers.index')}}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bxs-cabinet" style="color: #007bff"></i>
+                  <div data-i18n="Tables">Product</div>
+                </a>
+              </li>
+              <!-- Order Menu -->
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
+              <!-- Cards -->
+              <li class="menu-item">
+                <a href="{{ route('suppliers.index')}}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-basket" style="color: #007bff"></i>
+                  <div data-i18n="Tables">Order</div>
+                </a>
+              </li>
               <!-- User interface -->
               {{-- <li class="menu-item">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -611,53 +569,6 @@
                   <div data-i18n="Boxicons">Boxicons</div>
                 </a>
               </li> --}}
-  
-              <!-- Forms & Tables -->
-              {{-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li> --}}
-              <!-- Forms -->
-              {{-- <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">Form Elements</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="forms-basic-inputs.html" class="menu-link">
-                      <div data-i18n="Basic Inputs">Basic Inputs</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="forms-input-groups.html" class="menu-link">
-                      <div data-i18n="Input groups">Input groups</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Layouts">Form Layouts</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="form-layouts-vertical.html" class="menu-link">
-                      <div data-i18n="Vertical Form">Vertical Form</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="form-layouts-horizontal.html" class="menu-link">
-                      <div data-i18n="Horizontal Form">Horizontal Form</div>
-                    </a>
-                  </li>
-                </ul>
-              </li> --}}
-              <!-- Tables -->
-              {{-- <li class="menu-item">
-                <a href="{{ route('suppliers.index')}}" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-table"></i>
-                  <div data-i18n="Tables">Tables</div>
-                </a>
-              </li> --}}
             </ul>
           </aside>
           <!-- / Menu -->
@@ -719,7 +630,7 @@
                               </div>
                             </div>
                             <div class="flex-grow-1">
-                              <span class="fw-medium d-block">John Doe</span>
+                              <span class="fw-medium d-block">{{ Auth::user()->name }}</span>
                               <small class="text-muted">Admin</small>
                             </div>
                           </div>
@@ -729,7 +640,7 @@
                         <div class="dropdown-divider"></div>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{route('profile.edit')}}">
                           <i class="bx bx-user me-2"></i>
                           <span class="align-middle">My Profile</span>
                         </a>

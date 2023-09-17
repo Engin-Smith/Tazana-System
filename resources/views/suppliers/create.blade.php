@@ -45,6 +45,17 @@
                                 <form action="{{ route('suppliers.store') }}" method="POST" enctype="multipart/form-data">
                                     
                                     @csrf
+                                    <!-- Upload photo -->
+                                    <div class="photo-wraper">
+                                        <div class="photo">
+                                            <img src="https://goo.gl/dExcjh" id="upload_image" class="rounded mx-auto d-block" style="width: 120px; height: 120px;">
+                                        </div>
+                                        <div class="button">
+                                            <input id="register-photo" class="rounded mx-auto d-block" onchange="readURL(this);" type="file" name="doc_image">
+                                        </div>
+                                    </div>
+                                    <!-- End Upload photo -->
+
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">ID</label>
                                         <input type="text" class="form-control bg-white" name="id">
@@ -75,7 +86,5 @@
             </div>
         </div>
   <!-- create End -->
-
-
 
 </x-app-layout>

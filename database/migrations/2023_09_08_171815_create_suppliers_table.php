@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tbl_suppliers', function (Blueprint $table) {
             $table->string('sup_id');
+            $table->string('sup_img');
             $table->string('sup_name');
             $table->string('sup_detail');
             $table->string('sup_contact');

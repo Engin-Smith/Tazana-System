@@ -14,6 +14,7 @@ class suppliers extends Model
     public $incrementing = false;
     protected $fillable = [
         'sup_id',
+        'sup_img',
         'sup_name',
         'sup_detail',
         'sup_contact'

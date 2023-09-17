@@ -116,3 +116,31 @@ let menu, animate;
   // Auto update menu collapsed/expanded based on the themeConfig
   window.Helpers.setCollapsed(true, false);
 })();
+
+// Upload Photo
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#upload_image')
+              .attr('src', e.target.result)
+              .width(120)
+              .height(120)
+              .show();
+      };
+
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+// End Upload Photo
+
+$(document).ready(function () {
+     
+  window.setTimeout(function() {
+      $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+          $(this).remove(); 
+      });
+  }, 5000);
+   
+  });

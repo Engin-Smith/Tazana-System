@@ -47,6 +47,7 @@ class SuppliersController extends Controller
         $request->validate([
             // 'id'=> 'required',
             'sup_name' => 'required',
+            // 'sup_img' => 'required',
             'sup_detail' => 'required',
             'sup_contact' => 'required'
         ]);
@@ -55,6 +56,11 @@ class SuppliersController extends Controller
         $supplier->sup_name = $request->sup_name;
         $supplier->sup_detail = $request->sup_detail;
         $supplier->sup_contact = $request->sup_contact;
+        
+        $path = $request->file('sup_img');
+       $image = $path->getClientOriginalName();
+       $path->move(public_path('image/'), $image);
+       $supplier->sup_img = $image;
 
         $supplier->save();
 
@@ -83,7 +89,7 @@ class SuppliersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, suppliers $suppliers , $id)
     {
         //
         
@@ -91,11 +97,23 @@ class SuppliersController extends Controller
             "sup_name"=>$request->sup_name,
             "sup_detail"=>$request->sup_detail,
             "sup_contact"=>$request->sup_contact,
+            // "sup_img" => $request->sup_img,
         ];
-        suppliers::where('sup_id', $id)->update($update);
 
+        $input = $request->all();
+
+        if ($image = $request->file('sup_img')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['sup_img'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        suppliers::where('sup_id', $id)->update($update);
         return redirect()->route('suppliers.index')
-                        ->with('success','Supplier created successfully.');
+                        ->with('success','Supplier Updated successfully.');
     }
 
     /**
