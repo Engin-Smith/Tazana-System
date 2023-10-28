@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pricing_detail', function (Blueprint $table) {
+        Schema::create('tblpricing_detail', function (Blueprint $table) {
             $table->string('prd_date');
             $table->string('pd_id');
             $table->string('b_price');
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pricing_detail');
+        Schema::dropIfExists('tblpricing_detail');
     }
 };

@@ -1,4 +1,4 @@
-<?php
+r<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('purchase_detail', function (Blueprint $table) {
-            $table->sting('pch_id');
-            $table->sting('pd_id');
-            $table->sting('qty');
-            $table->sting('unit_price');
-            $table->sting('total');
-            $table->sting('no');
+        Schema::create('tblpurchase_detail', function (Blueprint $table) {
+            $table->string('pch_id');
+            $table->string('pd_id');
+            $table->string('qty');
+            $table->string('unit_price');
+            $table->string('total');
+            $table->string('no');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('purchase_detail');
+        Schema::dropIfExists('tblpurchase_detail');
     }
 };
