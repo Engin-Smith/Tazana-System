@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuppliersController;
@@ -37,4 +38,5 @@ require __DIR__.'/auth.php';
 
 
 Route::resource('suppliers', SuppliersController::class)->middleware(['auth', 'admin']);
+Route::resource('employee', EmployeeController::class)->middleware(['auth', 'admin']);
 // Route::put('suppliers/{supplier}', 'SuppliersController@update')->name('suppliers.update');

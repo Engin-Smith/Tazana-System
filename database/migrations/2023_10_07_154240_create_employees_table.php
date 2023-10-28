@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tblemployees', function (Blueprint $table) {
             $table->string('emp_id');
+            $table->string('emp_img');
             $table->string('emp_name');
             $table->string('emp_gender');
             $table->string('emp_dob');

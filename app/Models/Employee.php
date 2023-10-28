@@ -9,14 +9,16 @@ class Employee extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = 'tbl_suppliers';
-    protected $primaryKey = 'sup_id';
+    protected $table = 'tblemployees';
+    protected $primaryKey = 'emp_id';
     public $incrementing = false;
     protected $fillable = [
-        'sup_id',
-        'sup_img',
-        'sup_name',
-        'sup_detail',
-        'sup_contact'
+        'emp_id',
+        'emp_img',
+        'emp_name',
+        'emp_gender',
+        'emp_dob',
+        'emp_address',
+        'emp_phone'
     ];
 }
