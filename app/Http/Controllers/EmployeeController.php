@@ -16,8 +16,8 @@ class EmployeeController extends Controller
         //
         $search =request()->query('search');
          if($search){
-             $employee = Employee::where('emp_id', 'LIKE', "%{$search}%")
-             ->orWhere('emp_name', 'LIKE', "%{$search}%" )->simplePaginate(3);
+             $employees = Employee::where('emp_id', 'LIKE', "%{$search}%")
+             ->orWhere('emp_name', 'LIKE', "%{$search}%" )->simplePaginate(3    );
          } else {
              $employees = Employee::paginate(10);
          }
@@ -46,7 +46,8 @@ class EmployeeController extends Controller
             'emp_gender' => 'required',
             'emp_dob' => 'required',
             'emp_address' => 'required',
-            'emp_phone' => 'required'
+            'emp_phone' => 'required',
+            'emp_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $input = $request->all();
         $employee->emp_id = IdGenerator::generate(['table' => 'tblemployees', 'field' => 'emp_id', 'length' => 6, 'prefix' => 'EMP']);
@@ -58,7 +59,7 @@ class EmployeeController extends Controller
         
         $path = $request->file('emp_img');
        $image = $path->getClientOriginalName();
-       $path->move(public_path('image/'), $image);
+       $path->move(public_path('image/employee/'), $image);
        $employee->emp_img = $image;
 
         $employee->save();
@@ -73,47 +74,51 @@ class EmployeeController extends Controller
     public function show(Employee $employee)
     {
         //
+        return view('employee.show', compact('employee'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit( $emp_id)
+    public function edit(Employee $employee)
     {
         //
-        $employee= Employee::find($emp_id);
+        // $employee= Employee::find($emp_id);
         return view('employee.edit', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employee $employee, $emp_id)
+    public function update(Request $request,Employee $employee)
     {
         //
-        $update = [
-            "emp_name"=>$request->emp_name,
-            "emp_gender"=>$request->emp_gender,
-            "emp_dob"=>$request->emp_dob,
-            "emp_address"=>$request->emp_address,
-            "emp_phone"=>$request->emp_phone,
-            "emp_img" => $request->emp_img,
-        ];
+       
+        // $request->validate([
+        //     // 'ass_id' => 'required',
+        //     'emp_name' ,
+        //     'emp_gender' ,
+        //     'emp_dob' ,
+        //     'emp_address' ,
+        //     'emp_phone' ,
+        //     // 'emp_img' ,
+        // ]);
 
         $input = $request->all();
 
-        if ($image = $request->file('emp_img')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['emp_img'] = "$profileImage";
-        }else{
-            unset($input['image']);
-        }
+        // if ($image = $request->file('emp_img')) {
+        //     $destinationPath = 'image/employee/';
+        //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        //     $image->move($destinationPath, $profileImage);
+        //     $input['emp_img'] = "$profileImage";
+        // }else{
+        //     unset($input['image/employee/']);
+        // }
 
-        Employee::where('emp_id', $emp_id)->update($update);
+        $employee->update($input);
+
         return redirect()->route('employee.index')
-                        ->with('success','employee Updated successfully.');
+                        ->with('success','Employee updated successfully');
     }
     
 
@@ -123,5 +128,8 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         //
+        $employee->delete();
+            return redirect()->route('employee.index')
+            ->with('success','Employee Delete successfully.');
     }
 }

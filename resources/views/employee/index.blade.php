@@ -69,7 +69,7 @@
             </div>
             <br>
             {{-- -----searching -------- --}}
-            <form action="/suppliers" type="get">
+            <form action="/employee" type="get">
                 <div class="input-group">
                     <input type="text" name="search" class="form-control" placeholder="Searching"
                         aria-label="Searching" />
@@ -105,7 +105,7 @@
                                           data-bs-placement="top"
                                           class="avatar avatar-xs pull-up"
                                           title="{{$employee->emp_name}}">
-                                          <img src="/image/{{($employee->emp_img)}}" alt="Avatar" class="rounded-circle" />
+                                          <img src="/image/employee/{{($employee->emp_img)}}" alt="Avatar" class="rounded-circle" />
                                         </li>
                                         
                                       </ul>
@@ -146,7 +146,7 @@
                                                     <div class="modal-body">
                                                         <div class="row">
                                                             <div class="col mb-3">
-                                                                <h5> Do you want to delete {{ $supplier->sup_id }}?</h5>
+                                                                <h5> Do you want to delete {{ $employee->emp_id }}?</h5>
                                                             </div>
                                                         </div>
 
@@ -157,13 +157,14 @@
                                                             Close
                                                         </button>
                                                         <button type="submit" class="btn btn-danger text-danger"
-                                                            action="{{ route('suppliers.destroy', $supplier->sup_id) }}"
+                                                            action="{{ route('.destroy', $employee->emp_id) }}"
                                                             method="POST">Delete</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> --}}
-                                    </form>
+                                        </div>
+                                    
+                                    </form> --}}
                                 </td>
                             </tr>
                         @endforeach
