@@ -43,7 +43,7 @@
                       <i class="menu-icon tf-icons bx bx-group" style="color: #007bff"></i>
                       <div data-i18n="Tables">Empployee</div>
                     </a>
-                    <a href="{{ route('suppliers.index')}}" class="menu-link">
+                    <a href="{{ route('customer.index')}}" class="menu-link">
                       <i class="menu-icon tf-icons bx bxs-shopping-bag" style="color: #007bff"></i>
                       <div data-i18n="Tables">Customer</div>
                     </a>
