@@ -153,12 +153,15 @@
                                 </div>
                             </div>
                             <div class="form-password-toggle">
-                                <label class="form-label" for="basic-default-password12">Employee Gender</label>
-                                <div class="input-group">
-                                    <input type="text" name="emp_gender" value="{{ $employee->emp_gender }}"
-                                        class="form-control" id="basic-default-password12"
-                                        aria-describedby="basic-default-password2" style="border-radius: 5px;"/>
-                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="defaultSelect" class="form-label"> Employee Gender</label>
+                                    <select id="defaultSelect" class="form-select" name="emp_gender">
+                                      <option>{{$employee->emp_gender}}</option>
+                                      <option value="M">Male</option>
+                                      <option value="F">Female</option>
+                                    </select>
+                                  </div>
                             </div>
                             <div class="form-password-toggle">
                                 <label class="form-label" for="basic-default-password12">Employee Date of Bidth</label>

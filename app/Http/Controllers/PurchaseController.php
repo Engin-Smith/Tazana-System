@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Purchase;
+use App\Models\suppliers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class PurchaseController extends Controller
 {
@@ -30,16 +34,48 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        //
-        return view('purchase.create');
+        // $data = DB::table('tbl_suppliers')
+        // ->join('tblemployees', 'tbl_suppliers.sup_id', '=', 'tblemployees.emp_id')
+        // ->select('tbl_suppliers.sup_id', 'tbl_suppliers.sup_name', 'tblemployees.emp_id', 'tblemployees.emp_name')
+        // ->get();
+        $generatedId = IdGenerator::generate([
+            'table' => 'tblpurchase',
+            'field' => 'pch_id',
+            'length' => 10,
+            'prefix' => 'PCH'
+        ]);
+
+        $data = DB::table('tbl_suppliers')->select('sup_id', 'sup_name')->get();
+        $employe = DB::table('tblemployees')->select('emp_id', 'emp_name')->get();
+    return view('purchase.create', compact('data','employe','generatedId'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Purchase $purchase)
     {
         //
+        $request->validate([
+            
+            'pch_id' => 'required',
+            'pch_date' => 'required',
+            'emp_id' => 'required',
+            'sup_id' => 'required',
+            'grand_total'  => 'required',
+        ]);
+        $input = $request->all();
+        // $purchase->pch_id = IdGenerator::generate(['table' => 'tblpurchase', 'field' => 'pch_id', 'length' => 10, 'prefix' => 'PCH']);
+        $purchase->pch_id = $request->pch_id;
+        $purchase->pch_date = $request->pch_date;
+        $purchase->emp_id = $request->emp_id;
+        $purchase->sup_id = $request->sup_id;
+        $purchase->grand_total = $request->grand_total;
+
+        $purchase->save();
+
+        return redirect()->route('product.index', compact('purchase'))
+                        ->with('success','Product created successfully.');
     }
 
     /**

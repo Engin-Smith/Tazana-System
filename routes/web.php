@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
@@ -46,6 +47,7 @@ Route::resource('employee', EmployeeController::class)->middleware(['auth', 'adm
 Route::resource('customer', CustomerController::class)->middleware(['auth', 'admin']);
 Route::resource('product', ProductController::class)->middleware(['auth', 'admin']);
 Route::resource('purchase', PurchaseController::class)->middleware(['auth', 'admin']);
+Route::resource('pricing', PricingController::class)->middleware(['auth', 'admin']);
 // Route::put('suppliers/{supplier}', 'SuppliersController@update')->name('suppliers.update');
 
 Route::resource('sale', SaleController::class);

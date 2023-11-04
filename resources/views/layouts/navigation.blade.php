@@ -61,6 +61,10 @@
                   <i class="menu-icon tf-icons bx bxs-cabinet" style="color: #007bff"></i>
                   <div data-i18n="Tables">Product</div>
                 </a>
+                <a href="{{ route('pricing.index')}}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bxs-cabinet" style="color: #007bff"></i>
+                  <div data-i18n="Tables">Pricing Detail</div>
+                </a>
               </li>
               <!-- Order Menu -->
               <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
