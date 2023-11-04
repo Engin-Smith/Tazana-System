@@ -119,7 +119,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title" id="modalCenterTitle">Update Supplier</h1>
+                <h1 class="modal-title" id="modalCenterTitle">Create New Customer</h1>
                 <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>

@@ -55,7 +55,7 @@ class CustomerController extends Controller
         $customer->save();
 
         return redirect()->route('customer.index')
-                        ->with('success','Employee created successfully.');
+                        ->with('success','Customer created successfully.');
     }
 
     /**
@@ -97,6 +97,6 @@ class CustomerController extends Controller
         //
         $customer->delete();
             return redirect()->route('customer.index')
-            ->with('success','Employee Delete successfully.');
+            ->with('success','Customer Delete successfully.');
     }
 }

@@ -53,11 +53,11 @@
               <li class="menu-header small text-uppercase"><span class="menu-header-text">Products</span></li>
               <!-- Cards -->
               <li class="menu-item">
-                <a href="{{ route('suppliers.index')}}" class="menu-link">
+                <a href="{{ route('purchase.index')}}" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-paste" style="color: #007bff"></i>
                   <div data-i18n="Tables">Purchace</div>
                 </a>
-                <a href="{{ route('suppliers.index')}}" class="menu-link">
+                <a href="{{ route('product.index')}}" class="menu-link">
                   <i class="menu-icon tf-icons bx bxs-cabinet" style="color: #007bff"></i>
                   <div data-i18n="Tables">Product</div>
                 </a>

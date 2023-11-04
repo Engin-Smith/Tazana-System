@@ -194,7 +194,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title" id="modalCenterTitle">Update Supplier</h1>
+                <h1 class="modal-title" id="modalCenterTitle">Create New Employee</h1>
                 <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
@@ -221,9 +221,15 @@
                     </div>
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="nameWithTitle" class="form-label">Employee Gender</label>
-                            <input type="text" id="nameWithTitle" class="form-control"
-                                placeholder="Enter Detail" name="emp_gender" style="border-radius: 5px;"/>
+                            
+                                <div class="mb-3">
+                                    <label for="defaultSelect" class="form-label"> select Gender</label>
+                                    <select id="defaultSelect" class="form-select" name="emp_gender">
+                                      <option>Default select</option>
+                                      <option value="M">Male</option>
+                                      <option value="F">Female</option>
+                                    </select>
+                                  </div>
                         </div>
                     </div>
                     <div class="row">
